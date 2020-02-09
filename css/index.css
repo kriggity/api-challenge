@@ -1,17 +1,221 @@
-body header {
-  background-color: #ccc;
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Condensed Light Italic'), local('OpenSansCondensed-LightItalic'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NHdQDnbTkabZAIOl9il_O6KJj73e7Fd_-7suD8Rb2Q.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Open Sans Condensed Light'), local('OpenSansCondensed-Light'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff1GhDuXMQg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Open Sans Condensed Bold'), local('OpenSansCondensed-Bold'), url(https://fonts.gstatic.com/s/opensanscondensed/v14/z7NFdQDnbTkabZAIOl9il_O6KJj73e7Ff0GmDuXMQg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Special Elite';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Special Elite Regular'), local('SpecialElite-Regular'), url(https://fonts.gstatic.com/s/specialelite/v10/XLYgIZbkc4JPUL5CVArUVL0ntnAOTQ.ttf) format('truetype');
+}
+*:focus,
+*:hover {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+*:focus,
+* button:focus,
+* input:focus,
+*:hover,
+* button:hover,
+* input:hover {
+  outline: none;
+}
+a {
+  color: #666666;
+}
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none;
+}
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0;
+  text-overflow: unset;
+  border: none;
+  background: none;
+  background-color: #4d313c;
+  color: #fff;
+}
+button:hover,
+button:focus {
+  background-color: #39090d;
+}
+body {
+  font-family: "Open Sans Condensed", sans-serif;
+  background-image: url("../assets/tablecloth01.png");
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+body header .outerWrapper {
+  background-color: rgba(0, 0, 0, 0.666);
+}
+body header .outerWrapper .innerWrapper {
+  padding: 2em 0;
+}
+body header .outerWrapper .innerWrapper h1 {
+  font-family: "Special Elite", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #e6e6e6;
+  text-shadow: 0 0 8px #000000;
+}
+body main {
+  min-height: 73vh;
+  background-color: #fff;
+  padding-top: 1em;
+}
+body main #search > div,
+body main #search form {
+  width: 100%;
+}
+body main #search form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+body main #search form,
+body main #search form input {
+  height: 64px;
+}
+body main #search form .input {
+  position: relative;
+  width: 50%;
+}
+@media (max-width: 576px) {
+  body main #search form .input {
+    width: 80%;
+  }
+}
+body main #search form .input label,
+body main #search form .input input,
+body main #search form .input button {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+}
+body main #search form .input label {
+  display: none;
+}
+body main #search form .input input {
+  z-index: 1;
+  width: 100%;
+  padding: 0 1em;
+}
+body main #search form .input button {
+  right: 0.666em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666666;
+  background-color: transparent;
+  font-size: 1.333em;
+}
+body main #search form .input button:hover,
+body main #search form .input button:focus {
+  color: #000;
+}
+body main #search form button[type="submit"] {
+  font-size: 1.666em;
+  width: 64px;
+}
+body main #search form button[type="submit"]:hover,
+body main #search form button[type="submit"]:focus {
+  background-color: #39090d;
 }
 body main #pages {
   display: none;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+body main #pages nav #prev,
+body main #pages nav #next {
+  font-size: 1em;
+}
+body main #pages nav #prev:disabled,
+body main #pages nav #next:disabled {
+  opacity: 0.5;
+}
+body main #pages nav #pagination {
+  margin: 0 1em;
 }
 body main #searchResults {
-  border: 1px solid #ccc;
-  padding: 1.75em 1em;
-  margin: 2em 0;
+  margin: 2em 0 0;
 }
-body main #searchResults img {
+body main #searchResults .recipeItem {
+  margin-bottom: 30px;
+}
+body main #searchResults .recipeItem .innerWrapper {
+  border: 1px solid #ccc;
+  display: block;
+}
+body main #searchResults .recipeItem .innerWrapper img {
   width: 100%;
 }
+body main #searchResults .recipeItem .innerWrapper:hover,
+body main #searchResults .recipeItem .innerWrapper:focus {
+  border-color: #000;
+}
+body main #searchResults .recipeItem .innerWrapper:hover p,
+body main #searchResults .recipeItem .innerWrapper:focus p {
+  color: #000;
+}
+body main #searchResults .recipeItem .innerWrapper .title,
+body main #searchResults .recipeItem .innerWrapper .calories {
+  padding: 0;
+  margin: 0 5%;
+  display: block;
+}
+body main #searchResults .recipeItem .innerWrapper .title {
+  margin-top: 5%;
+  line-height: 1.1;
+  margin-bottom: 2%;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+body main #searchResults .recipeItem .innerWrapper .calories {
+  font-size: 0.75em;
+  margin-bottom: 5%;
+  color: #666666;
+}
 body footer {
-  background-color: #ccc;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+body footer a {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: rgba(255, 255, 255, 0.666);
+}
+body footer a:hover,
+body footer a:focus,
+body footer a:visited {
+  color: #fff;
 }

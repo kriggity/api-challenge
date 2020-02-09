@@ -1,77 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>API Challenge - Recipe Search</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>API Challenge - Recipe Search</title>
-  <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-    crossorigin="anonymous" />
-  <link
-    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="./css/index.css" />
-</head>
-
-<body>
-  <header class="container-fluid">
-    <h1 class="text-center">Recipe Finder</h1>
-  </header>
-  <main class="container">
-    <div class="row justify-content-center" id="search">
-      <div class="col-xs-12">
-        <form>
-          <label for="searchQuery">Find Recipe</label>
-          <input type="text" id="searchQuery" />
-          <button type="reset">Clear</button>
-          <button type="submit">Find</button>
-        </form>
-      </div>
-    </div>
-    <div class="row col-xs-12 justify-content-center" id="pages">
-      <nav>
-        <button id="prev">Prev</button>
-        <span id="pagination">Page: <span class="pageNumCurr"></span> of <span class="pageNumMax"></span></span>
-        <button id="next">Next</button>
-      </nav>
-    </div>
-    <div class="row" id="searchResults">
-      <template>
-        <div class="col-xs-12 col-sm-3 recipeItem">
-          <img src="https://via.placeholder.com/150?text=No+Image+Available" alt="">
-          <a href="" class="title" target="_blank"></a>
-          <p class="calories">Cal </p>
+  <body>
+    <header>
+      <div class="outerWrapper">
+        <div class="innerWrapper">
+          <h1 class="text-center">Culinary Recipes from the Interwebs</h1>
         </div>
-      </template>
-    </div>
-  </main>
-  <footer class="container-fluid">
-    <div class="row justify-content-center">
-      <div class="col-xs-12">
-        Copyright &copy; 2020
       </div>
-    </div>
-  </footer>
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
-  <script src="./js/index.js"></script>
-</body>
-
+    </header>
+    <main>
+      <div class="container">
+        <div class="row justify-content-center" id="search">
+          <div class="col-xs-12">
+            <form>
+              <div class="input">
+                <input type="text" id="searchQuery" placeholder="Find Recipe" />
+                <label for="searchQuery">Find Recipe</label>
+                <button type="reset" title="Clear">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+              </div>
+              <button type="submit" title="Find">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="row col-xs-12 justify-content-center" id="pages">
+          <nav>
+            <button id="prev" title="Previous Page">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <span id="pagination"
+              >Page: <span class="pageNumCurr"></span> of
+              <span class="pageNumMax"></span
+            ></span>
+            <button id="next" title="Next Page">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </nav>
+        </div>
+        <div class="row" id="searchResults">
+          <template>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+              <a class="innerWrapper" href="" target="_blank">
+                <img
+                  src="https://via.placeholder.com/150?text=No+Image+Available"
+                  alt=""
+                />
+                <p class="title"></p>
+                <p class="calories">Cal&nbsp;</p>
+              </a>
+            </div>
+          </template>
+        </div>
+      </div>
+    </main>
+    <footer class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xs-12">
+          <a href="#"
+            ><i class="fa fa-arrow-up" aria-hidden="true"></i> Scroll to Top</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/index.js"></script>
+  </body>
 </html>

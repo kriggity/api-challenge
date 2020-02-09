@@ -21,6 +21,7 @@ const recipeItem = document.querySelectorAll('.recipeItem');
 
 // init listeners
 searchForm.addEventListener('submit', fetchResults);
+searchForm.addEventListener('submit', clearForm);
 searchForm.addEventListener('reset', clearForm);
 btnPrev.addEventListener('click', pagePrev);
 btnNext.addEventListener('click', pageNext);
@@ -76,7 +77,6 @@ function pageMe() {
     }
 }
 
-
 function fetchResults(e) {
     e.preventDefault();
     let searchTxt = encodeURI(searchInput.value);
@@ -111,17 +111,23 @@ function fetchResults(e) {
                 let clone = template[0].content.cloneNode(true); // 0 index is essential
                 let img = clone.querySelector('img');
                 let a = clone.querySelector('a');
-                let p = clone.querySelector('p');
+                let pTitle = clone.querySelector('p.title');
+                let pCals = clone.querySelector('p.calories');
 
                 img.src = imgSrc;
                 img.alt = label;
                 a.href = url;
-                a.innerText = label;
-                p.innerText += cals.toFixed(0);
+                pTitle.innerText = label;
+                pCals.innerText += cals.toFixed(0);
 
                 searchResultsDiv.appendChild(clone);
 
             }
         });
 }
+$('footer a').click(function (e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "fast");
+    return false;
+});
 

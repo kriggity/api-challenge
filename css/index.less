@@ -1,35 +1,223 @@
-@colorGrey: #ccc;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700|&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Special+Elite&display=swap");
 
+@colorGrey: rgb(102, 102, 102);
+@colorGreyCCC: #ccc;
+@colorBlue: #3836af;
+* {
+  &:focus,
+  &:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  &,
+  button,
+  input {
+    &:focus,
+    &:hover {
+      outline: none;
+    }
+  }
+}
+a {
+  color: @colorGrey;
+  &:hover,
+  &:focus,
+  &:visited {
+    text-decoration: none;
+  }
+}
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 0;
+  text-overflow: unset;
+  border: none;
+  background: none;
+  background-color: #4d313c;
+  color: #fff;
+  &:hover,
+  &:focus {
+    background-color: #39090d;
+  }
+}
 body {
-    header {
-        background-color: @colorGrey;
+  font-family: "Open Sans Condensed", sans-serif;
+  background-image: url("../assets/tablecloth01.png");
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  header {
+    .outerWrapper {
+      background-color: rgba(0, 0, 0, 0.666);
 
-        h1 {}
+      .innerWrapper {
+        padding: 2em 0;
+        h1 {
+          font-family: "Special Elite", sans-serif;
+          margin: 0;
+          padding: 0;
+          color: rgb(230, 230, 230);
+          text-shadow: 0 0 8px rgba(0, 0, 0, 1);
+        }
+      }
     }
+  }
 
-    main {
-        form#search {
-            label {}
-
-            input {}
-
-            button {}
+  main {
+    min-height: 73vh;
+    background-color: #fff;
+    padding-top: 1em;
+    #search {
+      > div,
+      form {
+        width: 100%;
+      }
+      form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        &,
+        input {
+          height: 64px;
         }
-        #pages {
-            display:none;
-        }
 
-        #searchResults {
-            border: 1px solid @colorGrey;
-            padding: 1.75em 1em;
-            margin: 2em 0;
-            img {
-                width:100%;
+        .input {
+          position: relative;
+          width: 50%;
+          @media (max-width: 576px) {
+            width: 80%;
+          }
+          label,
+          input,
+          button {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+          }
+          label {
+            display: none;
+            // color: @colorGrey;
+            // left: 1em;
+            // top: 50%;
+            // transform: translateY(-50%;);
+          }
+
+          input {
+            z-index: 1;
+            width: 100%;
+            padding: 0 1em;
+
+            // &:focus + label {
+            //   top: 0;
+            //   transform: unset;
+            // }
+          }
+
+          button {
+            right: 0.666em;
+            top: 50%;
+            transform: translateY(-50%);
+            color: @colorGrey;
+            background-color: transparent;
+            font-size: 1.333em;
+            &:hover,
+            &:focus {
+              color: #000;
             }
+          }
         }
+        button[type="submit"] {
+          font-size: 1.666em;
+          width: 64px;
+          &:hover,
+          &:focus {
+            background-color: #39090d;
+          }
+        }
+      }
+    }
+    #pages {
+      display: none;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      nav {
+        #prev,
+        #next {
+          font-size: 1em;
+          &:disabled {
+              opacity:.5;
+          }
+        }
+        #prev {
+        }
+        #pagination {
+          margin: 0 1em;
+        }
+        #next {
+        }
+      }
     }
 
-    footer {
-        background-color: @colorGrey;
+    #searchResults {
+      margin: 2em 0 0;
+      .recipeItem {
+        margin-bottom: 30px;
+        .innerWrapper {
+          border: 1px solid @colorGreyCCC;
+          display: block;
+          img {
+            width: 100%;
+          }
+          &:hover,
+          &:focus {
+            border-color: #000;
+            p {
+              color: #000;
+            }
+          }
+          .title,
+          .calories {
+            padding: 0;
+            margin: 0 5%;
+            display: block;
+          }
+          .title {
+            margin-top: 5%;
+            line-height: 1.1;
+            margin-bottom: 2%;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          .calories {
+            font-size: 0.75em;
+            margin-bottom: 5%;
+            color: @colorGrey;
+          }
+        }
+      }
     }
+  }
+
+  footer {
+    background-color: rgba(0, 0, 0, 0.85);
+    a {
+      display: block;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      color: rgba(255, 255, 255, 0.666);
+      &:hover,
+      &:focus,
+      &:visited {
+        color: #fff;
+      }
+    }
+  }
 }
