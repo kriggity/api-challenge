@@ -1,0 +1,17 @@
+body header {
+  background-color: #ccc;
+}
+body main #pages {
+  display: none;
+}
+body main #searchResults {
+  border: 1px solid #ccc;
+  padding: 1.75em 1em;
+  margin: 2em 0;
+}
+body main #searchResults img {
+  width: 100%;
+}
+body footer {
+  background-color: #ccc;
+}
