@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>API Challenge - Recipe Search</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="outerWrapper">
+        <div class="innerWrapper">
+          <h1 class="text-center">Culinary Recipes from the Interwebs</h1>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row justify-content-center" id="search">
+          <div class="col-xs-12">
+            <form>
+              <div class="input">
+                <input type="text" id="searchQuery" placeholder="Find Recipe" />
+                <label for="searchQuery">Find Recipe</label>
+                <button type="reset" title="Clear">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+              </div>
+              <button type="submit" title="Find">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="row col-xs-12 justify-content-center" id="pages">
+          <nav>
+            <button id="prev" title="Previous Page">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <span id="pagination"
+              >Page: <span class="pageNumCurr"></span> of
+              <span class="pageNumMax"></span
+            ></span>
+            <button id="next" title="Next Page">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </nav>
+        </div>
+
+        <div class="row" id="searchResults">
+          <template>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+              <a class="innerWrapper" href="" target="_blank">
+                <img
+                  src="https://via.placeholder.com/150?text=No+Image+Available"
+                  alt=""
+                />
+                <p class="title"></p>
+                <p class="calories">Cal&nbsp;</p>
+              </a>
+            </div>
+          </template>
+          <div class="col-xs-12" id="suggested">
+            <h2 >Suggested Recipes</h2>
+        </div>
+          <div class="row" id="searchResults">
+            <template>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="" target="_blank">
+                  <img src="https://via.placeholder.com/150?text=No+Image+Available" alt="">
+                  <p class="title"></p>
+                  <p class="calories">Cal&nbsp;</p>
+                </a>
+              </div>
+            </template>
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.jamieoliver.com/recipes/vegetarian-recipes/calzone" target="_blank">
+                  <img src="https://www.edamam.com/web-img/979/9796ba1b569c8ba9fedf14e91c889e39.jpg" alt="Calzone">
+                  <p class="title">Calzone</p>
+                  <p class="calories">Cal&nbsp;3054</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="https://www.marthastewart.com/945703/mushroom-artichoke-calzone" target="_blank">
+                  <img src="https://www.edamam.com/web-img/b41/b41ab056d1b7e1d703c2d1db9ff9aa09.jpg" alt="Mushroom-Artichoke Calzone">
+                  <p class="title">Mushroom-Artichoke Calzone</p>
+                  <p class="calories">Cal&nbsp;2411</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="https://food52.com/recipes/10372-calzone" target="_blank">
+                  <img src="https://www.edamam.com/web-img/f5b/f5b62fcf6d1c1cd44b13c3970557075d.jpg" alt="Calzone">
+                  <p class="title">Calzone</p>
+                  <p class="calories">Cal&nbsp;3516</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.seriouseats.com/recipes/2011/02/spinach-provolone-and-pepperoni-calzone.html" target="_blank">
+                  <img src="https://www.edamam.com/web-img/62c/62c92c8459830da04d672620f1a031e6.jpg" alt="Spinach, Provolone, and Pepperoni Calzone Recipe">
+                  <p class="title">Spinach, Provolone, and Pepperoni Calzone Recipe</p>
+                  <p class="calories">Cal&nbsp;3275</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.bbcgoodfood.com/recipes/9737/" target="_blank">
+                  <img src="https://www.edamam.com/web-img/833/833819220d2381cbfb0bae5fc2d6cedd.jpg" alt="Kale &amp; Salami Calzone">
+                  <p class="title">Kale &amp; Salami Calzone</p>
+                  <p class="calories">Cal&nbsp;2379</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.saveur.com/article/Recipes/Calzone-di-Prosciutto-e-Ricotta--Ham-and-Cheese-Calzone" target="_blank">
+                  <img src="https://www.edamam.com/web-img/731/731d678677e853694620d67f3949bb1f.jpg" alt="Calzone Di Prosciutto E Ricotta (Ham And Cheese Calzone)">
+                  <p class="title">Calzone Di Prosciutto E Ricotta (Ham And Cheese Calzone)</p>
+                  <p class="calories">Cal&nbsp;1237</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://pinchofyum.com/sausage-and-mozzarella-calzone" target="_blank">
+                  <img src="https://www.edamam.com/web-img/62a/62ac116d125fab168436358b028ebf68.jpeg" alt="Sausage and Mozzarella Calzone">
+                  <p class="title">Sausage and Mozzarella Calzone</p>
+                  <p class="calories">Cal&nbsp;5818</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="https://www.epicurious.com/recipes/food/views/double-cheese-and-prosciutto-calzone-233932" target="_blank">
+                  <img src="https://www.edamam.com/web-img/800/80050c82ec579dd6334a4721d187ceeb.jpg" alt="Double-Cheese and Prosciutto Calzone">
+                  <p class="title">Double-Cheese and Prosciutto Calzone</p>
+                  <p class="calories">Cal&nbsp;2254</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="https://www.chowhound.com/recipes/italian-sausage-calzone-31825" target="_blank">
+                  <img src="https://www.edamam.com/web-img/c3d/c3d5fc5dde2d45293ab091e51d2c5757.jpg" alt="Italian Sausage Calzone">
+                  <p class="title">Italian Sausage Calzone</p>
+                  <p class="calories">Cal&nbsp;3575</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.pbs.org/food/recipes/calzone/" target="_blank">
+                  <img src="https://www.edamam.com/web-img/d72/d72d7f6ef66be3f8632fe592d0fcfea4.jpg" alt="Calzone">
+                  <p class="title">Calzone</p>
+                  <p class="calories">Cal&nbsp;2885</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.cookstr.com/recipes/calzone-victoria-blashford-snell" target="_blank">
+                  <img src="https://www.edamam.com/web-img/4d8/4d82bdc64c88ad635e896211aab6a4a7.jpg" alt="Calzone">
+                  <p class="title">Calzone</p>
+                  <p class="calories">Cal&nbsp;2202</p>
+                </a>
+              </div>
+            
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 recipeItem">
+                <a class="innerWrapper" href="http://www.kitchendaily.com/recipe/muffuletta-calzone" target="_blank">
+                  <img src="https://www.edamam.com/web-img/ad8/ad82fb75f82111b0fc1eec780f409377.jpg" alt="Muffuletta Calzone">
+                  <p class="title">Muffuletta Calzone</p>
+                  <p class="calories">Cal&nbsp;1652</p>
+                </a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </main>
+    <!-- <footer class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xs-12">
+          <a href="#"
+            ><i class="fa fa-arrow-up" aria-hidden="true"></i> Scroll to Top</a
+          >
+        </div>
+      </div>
+    </footer> -->
+    <button id="scrollTop" title="Scroll to Top">
+      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      </button>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

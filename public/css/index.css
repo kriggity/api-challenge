@@ -66,11 +66,12 @@ button:focus {
 }
 body {
   font-family: "Open Sans Condensed", sans-serif;
-  background-image: url("../assets/tablecloth01.png");
-  height: 100vh;
   position: relative;
   margin: 0;
   padding: 0;
+}
+body header {
+  background-image: url("../assets/tablecloth01.png");
 }
 body header .outerWrapper {
   background-color: rgba(0, 0, 0, 0.666);
@@ -86,7 +87,6 @@ body header .outerWrapper .innerWrapper h1 {
   text-shadow: 0 0 8px #000000;
 }
 body main {
-  min-height: 73vh;
   background-color: #fff;
   padding-top: 1em;
 }
@@ -205,8 +205,15 @@ body main #searchResults .recipeItem .innerWrapper .calories {
   margin-bottom: 5%;
   color: #666666;
 }
+body #scrollTop {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
 body footer {
   background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  bottom: 0;
 }
 body footer a {
   display: block;

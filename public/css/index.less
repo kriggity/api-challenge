@@ -46,12 +46,13 @@ button {
 }
 body {
   font-family: "Open Sans Condensed", sans-serif;
-  background-image: url("../assets/tablecloth01.png");
-  height: 100vh;
+  
+  // height: 100vh;
   position: relative;
   margin: 0;
   padding: 0;
   header {
+    background-image: url("../assets/tablecloth01.png");
     .outerWrapper {
       background-color: rgba(0, 0, 0, 0.666);
 
@@ -69,7 +70,7 @@ body {
   }
 
   main {
-    min-height: 73vh;
+    // min-height: 73vh;
     background-color: #fff;
     padding-top: 1em;
     #search {
@@ -202,9 +203,15 @@ body {
       }
     }
   }
-
+#scrollTop {
+  position: fixed;
+  bottom:0;
+  right:0;
+}
   footer {
     background-color: rgba(0, 0, 0, 0.85);
+    position:fixed;
+    bottom:0;
     a {
       display: block;
       margin-top: 1em;

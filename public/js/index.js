@@ -83,6 +83,7 @@ function fetchResults(e) {
     // console.log(searchTxt);
     getRecipesAsync(searchTxt, fromInt, toInt)
         .then(data => {
+            $('#suggested').remove();
             $('.recipeItem').remove();
             let resultsTotal = data.count;
             maxPages = Math.ceil(resultsTotal / 12);
@@ -125,9 +126,23 @@ function fetchResults(e) {
             }
         });
 }
-$('footer a').click(function (e) {
+$('#scrollTop').click(function (e) {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "fast");
     return false;
 });
+// $(document).ready(function () {
+//     let winHeight = $(window).height();
+//     let headHeight = $('header').height();
+//     let footHeight = $('footer').height();
+//     let mainHeight = winHeight - headHeight - footHeight;
+//     $('main').css('height', `${mainHeight}px`);
+// });
+// $(window).resize(function () {
+//     let winHeight = $(window).height();
+//     let headHeight = $('header').height();
+//     let footHeight = $('footer').height();
+//     let mainHeight = winHeight - headHeight - footHeight;
+//     $('main').css('height', `${mainHeight}px`);
+// });
 
